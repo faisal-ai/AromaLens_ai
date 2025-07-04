@@ -61,10 +61,10 @@ def local_css():
 
 local_css()
 
-from ..core.rule_based import get_heuristic_notes
-from ..core.prompt_builder import build_prompt
-from ..core.llm_interface import query_llm
-from ..core.data_loader import load_presets
+from core.rule_based import get_heuristic_notes
+from core.prompt_builder import build_prompt
+from core.llm_interface import query_llm
+from core.data_loader import load_presets
 
 # Load presets JSON
 PRESETS_FILE = "data/presets.json"
