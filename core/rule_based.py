@@ -1,4 +1,3 @@
-
 from core.data import fragrance_db
 
 family_to_note = {

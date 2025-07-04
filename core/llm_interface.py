@@ -8,23 +8,20 @@ GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "deepseek-r1-distill-llama-70b"
 
 def extract_json_from_text(text: str) -> dict:
-    """
-    Try to extract and parse a JSON object from the text.
-    First try markdown ```json ... ``` block, then fallback to any {...} at the end.
-    """
-    # Try extracting JSON from markdown code block
+
+    # extracting JSON from markdown code block
     match = re.search(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
     if match:
         json_str = match.group(1)
     else:
-        # Fallback: try to extract the last {...} block in the string
+        # Fallback: trying to extract the last {...} block in the string
         brace_matches = re.findall(r'(\{.*?\})', text, re.DOTALL)
         if brace_matches:
             json_str = brace_matches[-1]
         else:
             return {"error": "No JSON block found in LLM response."}
 
-    # Parse the JSON string
+    # Parsing the JSON string
     try:
         parsed = json.loads(json_str)
         return parsed
@@ -52,7 +49,7 @@ def query_llm(prompt: str, model: str = GROQ_MODEL) -> dict:
         response = requests.post(GROQ_API_URL, headers=headers, json=data)
         response.raise_for_status()
 
-        print("Raw response text:", response.text)  # Optional: disable in prod
+        print("Raw response text:", response.text)
 
         json_resp = response.json()
 
@@ -66,7 +63,7 @@ def query_llm(prompt: str, model: str = GROQ_MODEL) -> dict:
 
         content = message["content"]
 
-        # Use updated JSON parser
+        # Using updated JSON parser
         result = extract_json_from_text(content)
         return result
 

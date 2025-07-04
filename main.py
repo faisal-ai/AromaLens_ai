@@ -66,7 +66,7 @@ from core.prompt_builder import build_prompt
 from core.llm_interface import query_llm
 from core.data_loader import load_presets
 
-# Load presets JSON
+# Loading presets JSON
 PRESETS_FILE = "data/presets.json"
 presets = load_presets(PRESETS_FILE)
 
@@ -116,7 +116,6 @@ with col1:
     else:
         st.session_state["prompt"] = None
 
-    # --- PLACE BUTTON HERE at bottom of col1 ---
     if st.session_state.get("prompt"):
         if st.button("Generate Notes with LLM"):
             st.session_state["generate_clicked"] = True
