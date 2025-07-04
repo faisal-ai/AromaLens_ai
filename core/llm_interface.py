@@ -3,7 +3,7 @@ import re
 import json
 import requests
 
-GROQ_API_KEY = st.secrets("GROQ_API_KEY")
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "deepseek-r1-distill-llama-70b"
 
