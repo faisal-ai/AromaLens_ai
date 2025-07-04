@@ -2,6 +2,7 @@ import os
 import re
 import json
 import requests
+import streamlit as st
 
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
