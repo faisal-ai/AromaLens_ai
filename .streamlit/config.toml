@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#A1863E"                  # rich gold
+backgroundColor = "#008B8B"               # deep indigo/navy
+secondaryBackgroundColor = "#2E2E48"      # dark muted purple/blue for cards
+textColor = "#F8F6F0"                     # soft light cream for contrast
+font = "sans-serif"                     # elegant and classic
+
+[server]
+headless = true
+port = 8501
+enableCORS = false

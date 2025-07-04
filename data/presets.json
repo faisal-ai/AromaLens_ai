@@ -1,0 +1,24 @@
+{
+  "Test Compound 1": {
+    "BENZYL BUTYRATE": 8,
+    "AUBEPINE PARA CRESOL": 12,
+    "AZARBRE": 6,
+    "BERGAMOT GIVCO 104": 10,
+    "BISABOLENE": 5,
+    "BENZYL SALICYLATE": 7,
+    "LINALOOL": 5,
+    "ISO E SUPER": 9,
+    "CITRONELLOL": 4,
+    "VANILLIN": 6
+  },
+  "Test Compound 2": {
+    "BERGAMOT GIVCO 104": 15,
+    "VANILLIN": 10,
+    "CITRONELLOL": 5
+  },
+  "Test Compound 3": {
+    "ISO E SUPER": 9.0,
+    "CITRONELLOL": 4.0,
+    "VANILLIN": 6.0
+  }
+}

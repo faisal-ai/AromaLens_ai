@@ -1,0 +1,1 @@
+# Fragrance Note Classifier\n\nA hybrid AI system using heuristics + LLM (Ollama) to classify fragrance ingredients.
