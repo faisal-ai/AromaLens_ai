@@ -29,7 +29,7 @@ def local_css():
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.55); /* slightly darker for contrast */
             z-index: -1;
         }
 
@@ -83,7 +83,7 @@ def local_css():
 
         /* Card style for output */
         .styled-output {
-            background-color: #A7D8D8;
+            background-color: rgba(167, 216, 216, 0.9);
             border-radius: 16px;
             padding: 1.5rem;
             box-shadow: 0 8px 16px rgba(196, 158, 90, 0.15);
@@ -91,6 +91,13 @@ def local_css():
             color: black;
             max-height: 80vh;
             overflow-y: auto;
+            font-family: 'Playfair Display', cursive, serif;
+        }
+
+        .styled-output p {
+            color: #222 !important;
+            font-size: 1.1rem !important;
+            margin: 0.2rem 0 0.4rem 1rem !important;
         }
 
         /* Header style */
@@ -106,6 +113,7 @@ def local_css():
         """,
         unsafe_allow_html=True
     )
+
 
 local_css()
 
@@ -162,43 +170,30 @@ with col1:
             except Exception:
                 st.error("Invalid format. Please use 'CHEMICAL NAME: %' per line.")
 
-        if chemicals:
-            st.markdown(
-                """
-                <div style="
-                    background-color: rgba(255, 255, 255, 0.75);
-                    border-radius: 16px;
-                    padding: 1.5rem;
-                    margin-top: 1rem;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                ">
-                    <h3 style="
-                        color: #4B3F72;
-                        font-size: 1.8rem;
-                        margin-bottom: 1rem;
-                        font-family: 'Playfair Display', cursive;
-                    ">
-                        Current Compound Chemicals 🧪
-                    </h3>
-                """,
-                unsafe_allow_html=True
-            )
-
-            for name, pct in chemicals.items():
+            if chemicals:
                 st.markdown(
-                    f"""
-                    <p style="
-                        font-size: 1.1rem;
-                        color: #222;
-                        margin: 0.2rem 0 0.4rem 1rem;
-                    ">
-                        • <b>{name}</b>: {pct}%
-                    </p>
+                    """
+                    <div class="styled-output">
+                        <h3 style="
+                            color: #4B3F72;
+                            font-size: 1.8rem;
+                            margin-bottom: 1rem;
+                        ">
+                            Current Compound Chemicals 🧪
+                        </h3>
                     """,
                     unsafe_allow_html=True
                 )
 
-            st.markdown("</div>", unsafe_allow_html=True)
+                for name, pct in chemicals.items():
+                    st.markdown(
+                        f"""
+                        <p>• <b>{name}</b>: {pct}%</p>
+                        """,
+                        unsafe_allow_html=True
+                    )
+
+                st.markdown("</div>", unsafe_allow_html=True)
 
             new_name = st.text_input("Name your compound to save:")
             if st.button("Save this compound"):
