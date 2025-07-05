@@ -9,8 +9,11 @@ def build_prompt(chemicals: dict, heuristics: dict) -> str:
         "For each chemical:\n"
         "1. Assign it to a note category (top/middle/base).\n"
         "2. Briefly explain your reasoning based on its volatility, olfactive family, or typical perfumery role.\n"
-        "3. Mention any functional role (e.g., fixative, modifier), blending behavior, or common usage notes.\n"
-        "4. If a compound is hard to classify or rarely used, mark it as “Uncertain” and explain.\n\n"
+        "3. Mention its olfactory family (e.g., floral, woody, citrus, oriental, fresh, gourmand).\n"
+        "4. Describe common fragrance accords or blends it typically appears in.\n"
+        "5. Note any sensory characteristics (e.g., fresh, warm, sweet, balsamic).\n"
+        "6. Mention any functional role (e.g., fixative, modifier), blending behavior, or common usage notes.\n"
+        "7. If a compound is hard to classify or rarely used, mark it as “Uncertain” and explain.\n\n"
         "Here are the input chemicals and their concentrations:\n"
     )
 
@@ -24,12 +27,47 @@ def build_prompt(chemicals: dict, heuristics: dict) -> str:
             prompt += f"{note.capitalize()} Notes (heuristic): {', '.join(names)}\n"
 
     prompt += (
-        "\nReturn your answer in a structured format like this:\n"
+        "\nReturn your answer in a structured JSON format like this:\n"
         '{\n'
-        '  "top_notes": [\n    {"name": "...", "reason": "..."},\n    ...\n  ],\n'
-        '  "middle_notes": [\n    {"name": "...", "reason": "..."},\n    ...\n  ],\n'
-        '  "base_notes": [\n    {"name": "...", "reason": "..."},\n    ...\n  ],\n'
-        '  "uncertain": [\n    {"name": "...", "reason": "..."}\n  ]\n'
+        '  "top_notes": [\n'
+        '    {\n'
+        '      "name": "...",\n'
+        '      "reason": "...",\n'
+        '      "olfactory_family": "...",\n'
+        '      "common_accords": "...",\n'
+        '      "sensory_characteristics": "...",\n'
+        '      "functional_role": "..." \n'
+        '    },\n'
+        '    ...\n'
+        '  ],\n'
+        '  "middle_notes": [\n'
+        '    {\n'
+        '      "name": "...",\n'
+        '      "reason": "...",\n'
+        '      "olfactory_family": "...",\n'
+        '      "common_accords": "...",\n'
+        '      "sensory_characteristics": "...",\n'
+        '      "functional_role": "..." \n'
+        '    },\n'
+        '    ...\n'
+        '  ],\n'
+        '  "base_notes": [\n'
+        '    {\n'
+        '      "name": "...",\n'
+        '      "reason": "...",\n'
+        '      "olfactory_family": "...",\n'
+        '      "common_accords": "...",\n'
+        '      "sensory_characteristics": "...",\n'
+        '      "functional_role": "..." \n'
+        '    },\n'
+        '    ...\n'
+        '  ],\n'
+        '  "uncertain": [\n'
+        '    {\n'
+        '      "name": "...",\n'
+        '      "reason": "..." \n'
+        '    }\n'
+        '  ]\n'
         '}\n'
     )
 
