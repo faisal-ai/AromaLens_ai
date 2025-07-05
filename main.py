@@ -157,11 +157,43 @@ with col1:
                     chemicals[name.strip()] = float(pct.strip())
             except Exception:
                 st.error("Invalid format. Please use 'CHEMICAL NAME: %' per line.")
-
+'''
     if chemicals:
         st.subheader("Current compound chemicals")
         for name, pct in chemicals.items():
             st.write(f"- {name}: {pct}%")
+'''
+    if chemicals:
+        st.markdown(
+            """
+            <div style="
+                background-color: rgba(255, 255, 255, 0.75);
+                border-radius: 16px;
+                padding: 1.5rem;
+                margin-top: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            ">
+                <h3 style="
+                    color: #4B3F72;
+                    font-size: 1.8rem;
+                    margin-bottom: 1rem;
+                    font-family: 'Playfair Display', cursive;
+                ">Current Compound Chemicals 🧪</h3>
+            """,
+            unsafe_allow_html=True
+        )
+
+        for name, pct in chemicals.items():
+            st.markdown(
+                f"""
+                <div style="font-size: 1.1rem; color: #222; margin-left: 1rem;">
+                    • <b>{name}</b>: {pct}%
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
         if compound_option == "Add a new compound":
             new_name = st.text_input("Name your compound to save:")
