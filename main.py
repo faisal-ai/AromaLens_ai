@@ -177,8 +177,8 @@ with col1:
             <div class="styled-output">
                 <h3 style="
                     color: #4B3F72;
-                    font-size: 1.8rem;
-                    margin-bottom: 1rem;
+                    font-size: 1.3rem;
+                    margin-bottom: 0.5rem;
                     font-family: 'Playfair Display', cursive;
                 ">
                     Current Compound Chemicals 🧪
