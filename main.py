@@ -95,8 +95,15 @@ presets = load_presets(PRESETS_FILE)
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
-    st.title("AromaLens : Fragrance Note Classifier 💐")
-
+    #st.title("AromaLens : Fragrance Note Classifier 💐")
+    st.markdown(
+        '''
+        <h1 style="color:black; font-weight:700; font-size:2.5rem;">
+            <span style="font-family: cursive; color: #8A5C9E;">AromaLens</span> : Fragrance Note Classifier 💐
+        </h1>
+        ''',
+        unsafe_allow_html=True
+    )
     # Dropdown for selecting a preset or manual entry
     compound_option = st.selectbox("Choose a test compound:", ["Add a new compound"] + list(presets.keys()))
 
