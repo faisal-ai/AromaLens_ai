@@ -7,7 +7,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+'''
 def local_css():
     st.markdown(
         """
@@ -41,6 +41,78 @@ def local_css():
             box-shadow: 0 8px 16px rgba(196, 158, 90, 0.15);
             margin-top: 1.5rem;
             color: black;  /* Make font color black */
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        /* Header style */
+        .css-1v3fvcr h1 {
+            font-family: 'Playfair Display', serif;
+            color: #8A5C9E;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+'''
+def local_css():
+    st.markdown(
+        """
+        <style>
+        /* Set background image for app */
+        .stApp {
+            background-image: url("https://aromalens.streamlit.app/static/background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Light transparent overlay for better readability */
+        .stApp::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            z-index: -1;
+        }
+
+        /* Rounded input boxes */
+        .stTextInput>div>div>input {
+            border-radius: 12px !important;
+            border: 1.5px solid #C49E5A !important;
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem !important;
+        }
+
+        /* Buttons with smooth hover */
+        button[kind="primary"] {
+            background-color: #C49E5A !important;
+            border-radius: 12px !important;
+            padding: 0.6rem 1.5rem !important;
+            font-weight: 600 !important;
+            transition: background-color 0.3s ease;
+        }
+        button[kind="primary"]:hover {
+            background-color: #A57F32 !important;
+            cursor: pointer;
+        }
+
+        /* Card style for output */
+        .styled-output {
+            background-color: #A7D8D8;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 16px rgba(196, 158, 90, 0.15);
+            margin-top: 1.5rem;
+            color: black;
             max-height: 80vh;
             overflow-y: auto;
         }
