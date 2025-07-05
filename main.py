@@ -14,7 +14,7 @@ def local_css():
         <style>
         /* Set background image for app */
         .stApp {
-            background-image: url("https://media.istockphoto.com/id/1452925414/de/foto/person-die-hausgemachte-lavendelessenz-mit-werkzeugen-auf-holzbank-herstellt.jpg?s=612x612&w=0&k=20&c=lgpjbjmtJfiobIa_BTCbb4b7QKJx23e3_YlkmYYbkVM=");
+            background-image: url("https://media.istockphoto.com/id/1305157495/de/foto/junge-parfümierer-in-vorbereitung-parfüm-während-am-tisch-in-ihrem-eigenen-geschäft-sitzen.jpg?s=612x612&w=0&k=20&c=pU2O5z1119oAUI2KwwNhkl3MC9tfsmnELLKI3m7-VB0=");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
