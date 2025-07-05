@@ -14,7 +14,7 @@ def local_css():
         <style>
         /* Set background image for app */
         .stApp {
-            background-image: url("https://as1.ftcdn.net/v2/jpg/13/35/10/62/1000_F_1335106215_GBidBrN4A684j5JqBTkLup6M9ctNrZ19.jpg");
+            background-image: url("https://media.istockphoto.com/id/1713008927/de/foto/workshop-für-aromatische-kerzen-reine-kerzenessenzen.jpg?s=612x612&w=0&k=20&c=ukOiYpFqLcDdyEilCyvmXh3u7UIu8AMHXU6t6TC5gMY=");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
