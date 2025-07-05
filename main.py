@@ -130,7 +130,6 @@ presets = load_presets(PRESETS_FILE)
 col1, col2 = st.columns([1, 1.5])
 
 with col1:
-    #st.title("AromaLens : Fragrance Note Classifier 💐")
     st.markdown(
         '''
         <div style="background-color: rgba(255, 255, 255, 0.85); 
@@ -149,6 +148,7 @@ with col1:
         ''',
         unsafe_allow_html=True
     )
+
     # Dropdown for selecting a preset or manual entry
     compound_option = st.selectbox("Create a compound and check notes:", ["Add a new compound"] + list(presets.keys()))
 
@@ -170,54 +170,66 @@ with col1:
             except Exception:
                 st.error("Invalid format. Please use 'CHEMICAL NAME: %' per line.")
 
-            if chemicals:
-                st.markdown(
-                    """
-                    <div class="styled-output">
-                        <h3 style="
-                            color: #4B3F72;
-                            font-size: 1.8rem;
-                            margin-bottom: 1rem;
-                        ">
-                            Current Compound Chemicals 🧪
-                        </h3>
-                    """,
-                    unsafe_allow_html=True
-                )
+    # Show chemicals if any (both preset or manual)
+    if chemicals:
+        st.markdown(
+            """
+            <div class="styled-output">
+                <h3 style="
+                    color: #4B3F72;
+                    font-size: 1.8rem;
+                    margin-bottom: 1rem;
+                    font-family: 'Playfair Display', cursive;
+                ">
+                    Current Compound Chemicals 🧪
+                </h3>
+            """,
+            unsafe_allow_html=True
+        )
 
-                for name, pct in chemicals.items():
-                    st.markdown(
-                        f"""
-                        <p>• <b>{name}</b>: {pct}%</p>
-                        """,
-                        unsafe_allow_html=True
-                    )
+        for name, pct in chemicals.items():
+            st.markdown(
+                f"""
+                <p style="
+                    font-size: 1.1rem;
+                    color: #222;
+                    margin: 0.2rem 0 0.4rem 1rem;
+                ">
+                    • <b>{name}</b>: {pct}%
+                </p>
+                """,
+                unsafe_allow_html=True
+            )
 
-                st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
-            new_name = st.text_input("Name your compound to save:")
-            if st.button("Save this compound"):
-                if new_name.strip() == "":
-                    st.error("Please enter a valid name.")
-                else:
-                    presets[new_name] = chemicals
-                    with open(PRESETS_FILE, "w") as f:
-                        json.dump(presets, f, indent=2)
-                    st.success(f"Compound '{new_name}' saved successfully!")
+    # If adding a new compound, allow naming & saving it
+    if compound_option == "Add a new compound":
+        new_name = st.text_input("Name your compound to save:")
+        if st.button("Save this compound"):
+            if new_name.strip() == "":
+                st.error("Please enter a valid name.")
+            else:
+                presets[new_name] = chemicals
+                with open(PRESETS_FILE, "w") as f:
+                    json.dump(presets, f, indent=2)
+                st.success(f"Compound '{new_name}' saved successfully!")
 
-            heuristics = get_heuristic_notes(chemicals)
-            prompt = build_prompt(chemicals, heuristics)
-            st.session_state["prompt"] = prompt
-            st.session_state["chemicals"] = chemicals
-        else:
-            st.session_state["prompt"] = None
+    # Build prompt & heuristics for further processing if chemicals exist
+    if chemicals:
+        heuristics = get_heuristic_notes(chemicals)
+        prompt = build_prompt(chemicals, heuristics)
+        st.session_state["prompt"] = prompt
+        st.session_state["chemicals"] = chemicals
+    else:
+        st.session_state["prompt"] = None
 
+    # Generate notes button logic
     if st.session_state.get("prompt"):
         if st.button("Generate Notes"):
             st.session_state["generate_clicked"] = True
     else:
         st.session_state["generate_clicked"] = False
-
 
 def build_notes_html(notes, title, emoji):
     if not notes:
