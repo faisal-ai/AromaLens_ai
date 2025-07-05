@@ -106,7 +106,7 @@ with col1:
     st.markdown(
         '''
         <h1 style="color:black; font-weight:700; font-size:2.5rem;">
-            <span style="font-family: cursive; color: #8A5C9E;">AromaLens</span> : Fragrance Note Classifier 💐
+            <span style="font-family: cursive; color: #8A5C9E;">AromaLens</span> : AI-powered Fragrance Insight 🌺
         </h1>
         ''',
         unsafe_allow_html=True
@@ -172,7 +172,7 @@ def build_notes_html(notes, title, emoji):
 
 with col2:
     if st.session_state.get("generate_clicked", False) and st.session_state.get("prompt"):
-        with st.spinner("🌺Thinking like a master perfumer..."):
+        with st.spinner("💐Thinking like a master perfumer..."):
             response = query_llm(st.session_state["prompt"])
 
         if "error" in response:
