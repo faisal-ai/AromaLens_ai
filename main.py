@@ -83,7 +83,7 @@ with col1:
         chemicals = presets[compound_option]
     else:
         st.info("Enter fragrance chemicals and percentages manually, one per line (e.g. BENZYL SALICYLATE: 7)")
-        manual_input = st.text_area("Manual compound input:")
+        manual_input = st.text_area("Input chemical and percentages:")
         chemicals = {}
         if manual_input:
             try:
@@ -117,7 +117,7 @@ with col1:
         st.session_state["prompt"] = None
 
     if st.session_state.get("prompt"):
-        if st.button("Generate Notes with LLM"):
+        if st.button("Generate Notes"):
             st.session_state["generate_clicked"] = True
     else:
         st.session_state["generate_clicked"] = False
@@ -137,13 +137,13 @@ def build_notes_html(notes, title, emoji):
 
 with col2:
     if st.session_state.get("generate_clicked", False) and st.session_state.get("prompt"):
-        with st.spinner("Thinking like a master perfumer..."):
+        with st.spinner("🌺Thinking like a master perfumer..."):
             response = query_llm(st.session_state["prompt"])
 
         if "error" in response:
             st.error(f"Error from LLM: {response['error']}")
         else:
-            st.success("LLM response received!")
+            st.success("Analyzing completed successfully!")
 
             top_html = build_notes_html(response.get("top_notes"), "Top Notes", "🌿")
             middle_html = build_notes_html(response.get("middle_notes"), "Middle Notes", "🌸")
