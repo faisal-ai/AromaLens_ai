@@ -32,14 +32,34 @@ def local_css():
             background-color: rgba(255, 255, 255, 0.4);
             z-index: -1;
         }
-        
+
         /* Style the label of selectbox */
         div[data-testid="stSelectbox"] > label > div {
             color: black !important;
-            font-size: 2rem !important;  /* increase font size */
+            font-size: 1.5rem !important;
             font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            display: inline-block;
         }
-    
+
+        /* Style the selectbox input */
+        div[data-testid="stSelectbox"] > div {
+            background-color: white !important;
+            border: 2px solid #C49E5A !important;
+            border-radius: 12px !important;
+            padding: 0.5rem !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* Style the placeholder text in select dropdown */
+        .css-1wa3eu0-placeholder {
+            color: #555 !important;
+            font-size: 1rem !important;
+        }
+
         /* Rounded input boxes */
         .stTextInput>div>div>input {
             border-radius: 12px !important;
@@ -75,7 +95,7 @@ def local_css():
 
         /* Header style */
         .css-1v3fvcr h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', cursive, serif;
             color: #8A5C9E;
             font-weight: 700;
             font-size: 2.5rem;
@@ -105,9 +125,19 @@ with col1:
     #st.title("AromaLens : Fragrance Note Classifier 💐")
     st.markdown(
         '''
-        <h1 style="color:black; font-weight:700; font-size:2.5rem;">
-            <span style="font-family: cursive; color: #8A5C9E;">🌺AromaLens</span> : Discover Your Scent’s Story with AI 
-        </h1>
+        <div style="background-color: rgba(255, 255, 255, 0.85); 
+                    padding: 1rem 1.5rem; 
+                    border-radius: 16px; 
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+                    display: inline-block; 
+                    margin-bottom: 1rem;">
+            <h1 style="color:black; 
+                       font-weight:700; 
+                       font-size:2rem; 
+                       margin: 0;">
+                <span style="font-family: cursive; color: #8A5C9E;">🌺 AromaLens</span> : Discover Your Perfume’s Story with AI
+            </h1>
+        </div>
         ''',
         unsafe_allow_html=True
     )
