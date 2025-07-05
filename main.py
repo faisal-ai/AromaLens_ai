@@ -157,12 +157,7 @@ with col1:
                     chemicals[name.strip()] = float(pct.strip())
             except Exception:
                 st.error("Invalid format. Please use 'CHEMICAL NAME: %' per line.")
-'''
-    if chemicals:
-        st.subheader("Current compound chemicals")
-        for name, pct in chemicals.items():
-            st.write(f"- {name}: {pct}%")
-'''
+
     if chemicals:
         st.markdown(
             """
