@@ -200,5 +200,3 @@ with col2:
             </div>
             """
             st.markdown(full_html, unsafe_allow_html=True)
-    else:
-        st.info("")
