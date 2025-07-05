@@ -14,7 +14,7 @@ def local_css():
         <style>
         /* Set background image for app */
         .stApp {
-            background-image: url("https://aromalens.streamlit.app/static/background.jpg");
+            background-image: url("https://media.istockphoto.com/id/1452925414/de/foto/person-die-hausgemachte-lavendelessenz-mit-werkzeugen-auf-holzbank-herstellt.jpg?s=612x612&w=0&k=20&c=lgpjbjmtJfiobIa_BTCbb4b7QKJx23e3_YlkmYYbkVM=");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
