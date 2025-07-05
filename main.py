@@ -106,7 +106,7 @@ with col1:
     st.markdown(
         '''
         <h1 style="color:black; font-weight:700; font-size:2.5rem;">
-            <span style="font-family: cursive; color: #8A5C9E;">AromaLens</span> : AI-powered Fragrance Insight 🌺
+            <span style="font-family: cursive; color: #8A5C9E;">🌺AromaLens</span> : Discover Your Scent’s Story with AI 
         </h1>
         ''',
         unsafe_allow_html=True
