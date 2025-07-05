@@ -14,7 +14,7 @@ def local_css():
         <style>
         /* Set background image for app */
         .stApp {
-            background-image: url("https://media.istockphoto.com/id/1305157495/de/foto/junge-parfümierer-in-vorbereitung-parfüm-während-am-tisch-in-ihrem-eigenen-geschäft-sitzen.jpg?s=612x612&w=0&k=20&c=pU2O5z1119oAUI2KwwNhkl3MC9tfsmnELLKI3m7-VB0=");
+            background-image: url("https://as1.ftcdn.net/v2/jpg/13/35/10/62/1000_F_1335106215_GBidBrN4A684j5JqBTkLup6M9ctNrZ19.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
