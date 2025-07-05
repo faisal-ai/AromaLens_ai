@@ -146,6 +146,10 @@ with col1:
 
     if compound_option != "Add a new compound":
         chemicals = presets[compound_option]
+        heuristics = get_heuristic_notes(chemicals)
+        prompt = build_prompt(chemicals, heuristics)
+        st.session_state["prompt"] = prompt
+        st.session_state["chemicals"] = chemicals
     else:
         st.info("Enter fragrance chemicals and percentages manually, one per line (e.g. BENZYL SALICYLATE: 7)")
         manual_input = st.text_area("Input chemical and percentages:")
@@ -159,7 +163,6 @@ with col1:
                 st.error("Invalid format. Please use 'CHEMICAL NAME: %' per line.")
 
         if chemicals:
-            # Start the card
             st.markdown(
                 """
                 <div style="
@@ -181,7 +184,6 @@ with col1:
                 unsafe_allow_html=True
             )
 
-            # Add each chemical as a line
             for name, pct in chemicals.items():
                 st.markdown(
                     f"""
@@ -196,10 +198,8 @@ with col1:
                     unsafe_allow_html=True
                 )
 
-            # Close the card
             st.markdown("</div>", unsafe_allow_html=True)
 
-        if compound_option == "Add a new compound":
             new_name = st.text_input("Name your compound to save:")
             if st.button("Save this compound"):
                 if new_name.strip() == "":
@@ -210,12 +210,12 @@ with col1:
                         json.dump(presets, f, indent=2)
                     st.success(f"Compound '{new_name}' saved successfully!")
 
-        heuristics = get_heuristic_notes(chemicals)
-        prompt = build_prompt(chemicals, heuristics)
-        st.session_state["prompt"] = prompt
-        st.session_state["chemicals"] = chemicals
-    else:
-        st.session_state["prompt"] = None
+            heuristics = get_heuristic_notes(chemicals)
+            prompt = build_prompt(chemicals, heuristics)
+            st.session_state["prompt"] = prompt
+            st.session_state["chemicals"] = chemicals
+        else:
+            st.session_state["prompt"] = None
 
     if st.session_state.get("prompt"):
         if st.button("Generate Notes"):
