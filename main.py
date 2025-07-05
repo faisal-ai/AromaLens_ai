@@ -32,7 +32,14 @@ def local_css():
             background-color: rgba(255, 255, 255, 0.4);
             z-index: -1;
         }
-
+        
+        /* Style the label of selectbox */
+        div[data-testid="stSelectbox"] > label > div {
+            color: black !important;
+            font-size: 2rem !important;  /* increase font size */
+            font-weight: 600;
+        }
+    
         /* Rounded input boxes */
         .stTextInput>div>div>input {
             border-radius: 12px !important;
@@ -105,7 +112,7 @@ with col1:
         unsafe_allow_html=True
     )
     # Dropdown for selecting a preset or manual entry
-    compound_option = st.selectbox("Choose a test compound:", ["Add a new compound"] + list(presets.keys()))
+    compound_option = st.selectbox("Create a compound and check notes:", ["Add a new compound"] + list(presets.keys()))
 
     if compound_option != "Add a new compound":
         chemicals = presets[compound_option]
@@ -194,4 +201,4 @@ with col2:
             """
             st.markdown(full_html, unsafe_allow_html=True)
     else:
-        st.info("Enter or select a compound on the left, then generate notes.")
+        st.info("")
