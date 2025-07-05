@@ -7,58 +7,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-'''
-def local_css():
-    st.markdown(
-        """
-        <style>
-        /* Rounded input boxes */
-        .stTextInput>div>div>input {
-            border-radius: 12px !important;
-            border: 1.5px solid #C49E5A !important;
-            padding: 0.5rem 1rem !important;
-            font-size: 1rem !important;
-        }
 
-        /* Buttons with smooth hover */
-        button[kind="primary"] {
-            background-color: #C49E5A !important;
-            border-radius: 12px !important;
-            padding: 0.6rem 1.5rem !important;
-            font-weight: 600 !important;
-            transition: background-color 0.3s ease;
-        }
-        button[kind="primary"]:hover {
-            background-color: #A57F32 !important;
-            cursor: pointer;
-        }
-
-        /* Card style for output */
-        .styled-output {
-            background-color: #A7D8D8;
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 16px rgba(196, 158, 90, 0.15);
-            margin-top: 1.5rem;
-            color: black;  /* Make font color black */
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        /* Header style */
-        .css-1v3fvcr h1 {
-            font-family: 'Playfair Display', serif;
-            color: #8A5C9E;
-            font-weight: 700;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-'''
 def local_css():
     st.markdown(
         """
